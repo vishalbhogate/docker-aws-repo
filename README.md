@@ -1,10 +1,3 @@
-# docker-aws
-
-![Security](https://github.com/DNXLabs/docker-aws/workflows/Security/badge.svg)
-![Lint](https://github.com/DNXLabs/docker-aws/workflows/Lint/badge.svg)
-
-Docker image containing AWS CLI, AWS Shell, and some scripts to ease AWS deployments.
-
 ## Dependencies
 - Docker
 
@@ -50,7 +43,7 @@ The Docker image has the following:
 - envsubst: quite useful to create file based on a template using env vars
 
 ## Author
-App managed by DNX Solutions.
+App managed by Vishal Bhogate.
 
 ## License
 Apache 2 Licensed. See LICENSE for full details.

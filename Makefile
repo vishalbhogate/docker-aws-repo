@@ -1,5 +1,5 @@
-VERSION = 2.1.6
-IMAGE_NAME ?= aws:$(VERSION)
+VERSION = 1.0.0
+IMAGE_NAME ?= learnawstechclub/aws:$(VERSION)
 TAG = $(VERSION)
 
 build:
