@@ -1,31 +1,32 @@
 FROM tbrock/saw:v0.2.2 as saw
 
 
-FROM alpine:3.11
+FROM alpine:3.7
 
-ENV BOTOCORE=1.17.2
-ENV BOTO3_VERSION=1.14.2
-ENV AWSCLI_VERSION=1.18.79
+ENV AWSCLI_VERSION=1.17.14
 
 RUN apk --no-cache update && \
     apk --no-cache add \
-        python3-dev=3.8.2-r2 \
-        ca-certificates=20191127-r2 \
-        groff=1.22.4-r0 \
-        less=551-r0 \
-        bash=5.0.11-r1 \
-        make=4.2.1-r2 \
-        jq=1.6-r0 \
-        gettext-dev=0.20.1-r2 \
+        python=2.7.15-r3 \
+        py-pip=9.0.1-r1 \
+        py-setuptools=33.1.1-r1 \
+        ca-certificates=20190108-r0 \
+        groff=1.22.3-r2 \
+        less=520-r0 \
+        bash=4.4.19-r1 \
+        make=4.2.1-r0 \
+        jq=1.5-r5 \
+        gettext-dev=0.19.8.1-r1 \
         wget=1.20.3-r0 \
-        curl=7.67.0-r3 \
-        g++=9.3.0-r0 \
-        zip=3.0-r7 \
-        git=2.24.4-r0  && \
-    pip3 --no-cache-dir install --upgrade pip==20.1.1 setuptools==46.1.3 && \
-    pip3 --no-cache-dir install botocore==$BOTOCORE boto3==$BOTO3_VERSION awscli==$AWSCLI_VERSION && \
+        curl=7.61.1-r3 \
+        g++=6.4.0-r5 \
+        zip=3.0-r4 \
+        git=2.15.4-r0  && \
+    pip --no-cache-dir install awscli==$AWSCLI_VERSION && \
     update-ca-certificates && \
     rm -rf /var/cache/apk/*
+
+RUN pip install boto3==1.12.28
 
 COPY --from=saw /bin/saw /bin/saw
 
